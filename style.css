@@ -137,16 +137,23 @@ li {
 }
 
 /* Modal CSS */
+canvas {
+  filter: blur(1px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
 .modal {
   display: block; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  z-index: 10000000; /* Sit on top */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.594), rgba(0, 0, 0, 0.616)),
     url(/images/overbg.png);
   background-size: cover;
   background-position: center;
