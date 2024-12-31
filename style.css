@@ -1,0 +1,274 @@
+body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+/* custom font  */
+@font-face {
+  font-family: "komikax";
+  src: url("/fonts/KOMIKAX_.ttf") format("woff2"),
+    url("/fonts/KOMIKAX_.ttf") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "mochi";
+  src: url("/fonts/MochiyPopOne-Regular.ttf") format("woff2"),
+    url("/fonts/MochiyPopOne-Regular.ttf") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+h2 {
+  font-family: "komikax", sans-serif;
+}
+p,
+h3,
+h4 {
+  font-family: "mochi", sans-serif;
+}
+
+/* welcome page design */
+.wlTtl {
+  text-fill-color: #fff;
+  text-stroke: 4px black;
+  -webkit-text-fill-color: #fff;
+  -webkit-text-stroke: 4px black;
+  -moz-text-fill-color: #fff;
+  font-size: 80px;
+  margin-bottom: 40px;
+}
+
+/* navbar design */
+.navIcon {
+  width: 48px;
+}
+.navbar {
+  position: fixed;
+  top: 24px;
+  /* left: 100px; */
+  /* right: 100px; */
+  background-image: url(/images/NAV.png);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 10000;
+  height: 81px;
+  width: 88%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin: 0 auto;
+  border: 2px solid #000;
+  box-shadow: 0 6px 1px #000;
+  border-radius: 25px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 1.2rem;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+li {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.navBtn {
+  width: 196px;
+  /* height: 58px; */
+
+  margin-right: 14px;
+}
+.slide {
+  width: 100vw;
+  height: 100vh;
+}
+
+.wrapper {
+  width: 300vw;
+  display: flex;
+  flex-direction: row;
+  transform: rotate(90deg) translateY(-100vh);
+  transform-origin: top left;
+}
+
+.outer-wrapper {
+  width: 100vh;
+  height: 100vw;
+  top: 0;
+  transform: rotate(-90deg) translateX(-100vh);
+  transform-origin: top left;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: absolute;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+/* section one design */
+.section1 {
+  background-image: url(/images/bg1.png);
+  background-size: cover;
+  background-position: 100% 70%;
+}
+
+/* section two design */
+.section2 {
+  background-image: url(/images/bg2.png);
+  background-size: cover;
+  background-position: 100% 70%;
+}
+
+/* section three design */
+.section3 {
+  background-image: url(/images/bg3.png);
+  background-size: cover;
+  background-position: 100% 70%;
+}
+
+/* Modal CSS */
+.modal {
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(/images/overbg.png);
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply;
+}
+.cta_btn {
+  outline: none;
+  border: none;
+  padding: 7px 30px;
+  background-color: red;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 30px;
+}
+.no_btn {
+  background-color: blue;
+  margin-left: 10px;
+}
+.no_btn:hover {
+  color: #fff !important;
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#main {
+  display: none; /* Hidden by default */
+}
+
+/* home page design */
+.homeTxt {
+  position: absolute;
+  top: 22%;
+  right: 22%;
+  background-color: #ffd9729f;
+  border: 2px solid #191919;
+  width: 286px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  border-radius: 8px;
+}
+.homeTxt h3,
+.secondTxt h3,
+.thirdTxt h3 {
+  text-fill-color: #fff;
+  text-stroke: 1px black;
+  -webkit-text-fill-color: #fff;
+  -webkit-text-stroke: 1px black;
+  -moz-text-fill-color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  line-height: 26px;
+  /* width: 251px; */
+  padding: 0 16px;
+}
+
+.treePos2 {
+  position: absolute;
+  left: -67px;
+  top: 0;
+  width: 500px;
+  left: -1;
+  height: 100vh;
+}
+.treePos3 {
+  position: absolute;
+  left: -50px;
+  top: 0;
+  width: 53px;
+  left: -1;
+  height: 100vh;
+}
+
+/* second section design */
+.secondTxt {
+  background-color: #ffd9729f;
+  border: 2px solid #191919;
+  width: 525px;
+  height: 155px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  border-radius: 8px;
+  position: absolute;
+  top: 30%;
+  right: 42%;
+}
+
+.thirdTxt {
+  background-color: #ffd9729f;
+  border: 2px solid #191919;
+  width: 570px;
+  height: 128px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  border-radius: 8px;
+  position: absolute;
+  top: 30%;
+  right: 10%;
+}
