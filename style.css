@@ -19,8 +19,15 @@ body {
   font-weight: normal;
   font-style: normal;
 }
+.header {
+  position: relative;
+  height: 81px;
+  width: 88%;
 
-h2 {
+  margin: 0 auto;
+}
+h2,
+a {
   font-family: "komikax", sans-serif;
 }
 p,
@@ -44,32 +51,11 @@ h4 {
 .navIcon {
   width: 48px;
 }
-.navbar {
-  position: fixed;
-  top: 24px;
-  /* left: 100px; */
-  /* right: 100px; */
-  background-image: url(/images/NAV.png);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  z-index: 10000;
-  height: 81px;
-  width: 88%;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  margin: 0 auto;
-  border: 2px solid #000;
-  box-shadow: 0 6px 1px #000;
-  border-radius: 25px;
-}
 
 .navbar a {
   color: white;
   text-decoration: none;
-  margin: 0 10px;
+  margin: 0 5px;
   font-size: 1.2rem;
 }
 
@@ -297,7 +283,7 @@ canvas {
   animation: scroll-btn 1s ease-in-out alternate infinite;
 
   svg {
-    fill: #facb28;
+    fill: #000;
     height: 50px;
     width: 32px;
     margin-bottom: 10px;
@@ -351,5 +337,304 @@ canvas {
   100% {
     transform: translateY(16px);
     opacity: 0;
+  }
+}
+
+/* drop down styles */
+
+/* Dropdown styles */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Black with opacity */
+  backdrop-filter: blur(5px); /* Blurry effect */
+  z-index: 999; /* Ensure it's above everything else */
+  display: none; /* Hidden by default */
+}
+.dropdown {
+  position: absolute;
+  top: 37px;
+  right: -65%;
+  width: 320px;
+  height: 450px;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  background-image: url(/images/drop.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  z-index: 1000;
+  border-radius: 8px;
+  border: 2px solid #191919;
+  padding: 14px;
+  display: none;
+}
+.dropdown.active {
+  display: flex;
+}
+
+.dropdown-content {
+  border-radius: 8px;
+}
+
+.dropdown-content h2 {
+  margin: 0 0 10px;
+}
+
+.dropdown-content p {
+  margin: 0 0 20px;
+}
+
+.dropdown-content button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.dropdown-content button:hover {
+  background-color: #0056b3;
+}
+img.mobBuy {
+  width: 148px;
+  height: 45px;
+}
+.dropHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 39px;
+  padding: 0 10px;
+}
+img.closeBtn {
+  width: 100%;
+}
+img.dropLogo {
+  text-align: left;
+  width: 197px;
+  margin-top: 1px;
+}
+ul.dropNav {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  padding-right: 12px;
+}
+
+.dropNav li a,
+.para {
+  text-fill-color: #000000;
+  text-stroke: 4px #facb28;
+  -webkit-text-fill-color: #000000;
+  -webkit-text-stroke: 1px #facb28;
+  -moz-text-fill-color: #000;
+  font-size: 21px;
+  display: block;
+  margin-top: 17px;
+  text-decoration: none;
+  padding-left: 17px;
+}
+img.dropLogo {
+  text-align: left;
+  width: 197px;
+  margin-top: 1px;
+  margin-left: 10px;
+}
+img.mobTg {
+  width: 52px;
+  margin-right: 5px;
+}
+img.mobTg,
+.mobTwitter {
+  width: 52px;
+}
+/* new custom navbar */
+.navbar {
+  position: fixed;
+  top: 24px;
+  background-image: url(/images/NAV.png);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 10000;
+  height: 81px;
+  width: 88%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 25px;
+  margin: 0 auto;
+  border: 2px solid #000;
+  box-shadow: 0 6px 1px #000;
+  padding: 0 40px !important;
+}
+.navbar .brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar .brand img {
+  width: 182px;
+  height: auto;
+}
+.navbar .audioBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.navbar .audioBtn img {
+  width: 43px;
+  height: auto;
+}
+.navbar .nav-links {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.navbar .nav-links a,
+.navbar .nav-links button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.navbar .nav-links img {
+  width: 47px;
+  height: auto;
+}
+
+.navbar .burger-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar .burger-btn img {
+  width: 25px;
+  height: auto;
+}
+.disBlock {
+  display: none;
+}
+
+.mainHeight {
+  height: 130vh;
+}
+@media screen and (max-width: 1500px) {
+  .mainHeight {
+    height: 100vh;
+  }
+}
+
+/******************responsive code***************/
+@media screen and (max-width: 768px) {
+  .homeTxt {
+    right: 55%;
+  }
+  .secondTxt {
+    top: 30%;
+    right: 18%;
+  }
+  .slide {
+    width: 200vw;
+    height: 100vh;
+  }
+  .thirdTxt {
+    top: 41%;
+    right: 7%;
+  }
+  .wrapper {
+    width: 600vw;
+    display: flex;
+    flex-direction: row;
+    transform: rotate(90deg) translateY(-100vh);
+    transform-origin: top left;
+  }
+  .header {
+    position: relative;
+    height: 81px;
+    width: 98%;
+
+    margin: 0 auto;
+  }
+  .disn {
+    display: none;
+  }
+  .disBlock {
+    display: block;
+  }
+
+  .navbar {
+    position: fixed;
+    top: 24px;
+    background-image: url(/images/NAV.png);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 10000;
+    height: 81px;
+    flex-wrap: nowrap !important;
+    width: 97%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
+    margin: 0 auto;
+    border: 2px solid #000;
+    box-shadow: 0 6px 1px #000;
+    padding: 0 19px !important;
+  }
+  .navbar .nav-links img {
+    width: 38px;
+    height: auto;
+  }
+  .navbar .brand img {
+    width: 171px;
+    height: auto;
+  }
+  .dropdown {
+    position: static;
+    top: 37px;
+    right: -6px;
+    width: 320px;
+    height: 450px;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    background-image: url(/images/drop.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1000;
+    border-radius: 8px;
+    border: 2px solid #191919;
+    padding: 14px;
+    display: none;
+    left: 8%;
+  }
+  .scroll-btn {
+    position: absolute;
+    left: calc(25%);
+    top: 76vh;
+    cursor: pointer;
+    animation: scroll-btn 1s ease-in-out alternate infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .scroll_text {
+    position: absolute;
+    left: calc(17%);
+    top: 88vh;
+    cursor: pointer;
+  }
+  .mainHeight {
+    height: 100vh;
   }
 }

@@ -19,78 +19,127 @@
     ></script>
   </head>
   <body>
-    <main id="main" style="height: 100vh">
+    <main id="main" class="mainHeight">
       <!-- Sticky Navbar -->
 
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <!-- Left Side: Logo and Music Button -->
-          <a class="navbar-brand" href="#">
-            <img src="/images/icons/logo.png" alt="" class="navBtn" />
-          </a>
-          <button
-            class=""
-            type="button"
-            style="border: none; outline: none; background: none"
-          >
-            <a class="nav-link" href="tglink">
-              <img src="/images/icons/audio.png" alt="" class="navIcon" />
+      <header class="header">
+        <nav class="navbar">
+          <div class="brand">
+            <a href="#">
+              <img src="/images/icons/logo.png" alt="Logo" />
             </a>
-          </button>
+            <button class="audioBtn disn">
+              <img src="/images/icons/audio.png" alt="Audio" />
+            </button>
+          </div>
+          <div class="nav-links" id="navLinks">
+            <a href="buylink" class="disn">
+              <img
+                src="/images/icons/BUY.png"
+                class="buyBtn"
+                alt="Buy"
+                style="width: 152px"
+              />
+            </a>
+            <a href="tglink" class="disn">
+              <img src="/images/icons/tg.png" alt="Telegram" />
+            </a>
+            <a href="ttlink" class="disn">
+              <img src="/images/icons/tt.png" alt="Twitter" />
+            </a>
+            <button class="disBlock">
+              <img
+                src="/images/icons/audio.png"
+                alt="Audio"
+                style="width: 38px"
+              />
+            </button>
+            <button id="openDropdown">
+              <img src="/images/icons/burger.png" alt="Burger Menu" />
+            </button>
+          </div>
+        </nav>
+        <!-- Black Overlay -->
+        <div class="overlay" id="overlay" style="display: none"></div>
+        <!-- Dropdown -->
 
-          <!-- Right Side: Links -->
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div
-            class="collapse navbar-collapse"
-            id="navbarNav"
-            style="
-              display: flex;
-              align-content: center;
-              justify-content: center;
-            "
-          >
-            <ul
-              class="navbar-nav ms-auto"
+        <div class="dropdown" id="dropdown">
+          <div class="dropdown-content">
+            <div class="dropHeader">
+              <a href="buylink" target="_blank" rel="noopener noreferrer">
+                <img src="/images/BUY.png" alt="" class="mobBuy" />
+              </a>
+              <button
+                style="background: none; border: none; outline: none"
+                id="closeDropdown"
+              >
+                <img
+                  src="/images/icons/close.png"
+                  class="closeBtn"
+                  alt=""
+                  id="closeDropdown"
+                />
+              </button>
+            </div>
+            <img src="/images/icons/logo.png" alt="" class="dropLogo" />
+            <div class="mobile_nav_box">
+              <ul class="dropNav">
+                <li>
+                  <a href="/" target="_blank" rel="noopener noreferrer">Home</a>
+                </li>
+                <li>
+                  <a
+                    href="gitbookLink"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >About</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="gitbookLink"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Tokenomics</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <!-- mobile nav socials -->
+            <div
               style="
+                padding-right: 14px;
                 display: flex;
-                align-content: center;
-                justify-content: center;
+                align-items: center;
+                justify-content: space-between;
+                padding-top: 50px;
               "
             >
-              <li class="">
-                <a class="nav-link" href="buylink">
-                  <img src="/images/icons/BUY.png" alt="" class="navBtn" />
+              <p style="opacity: 0">kdjdkf</p>
+              <div>
+                <a
+                  href="tglink"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style="text-decoration: none"
+                >
+                  <img src="/images/icons/tg.png" alt="" class="mobTg" />
                 </a>
-              </li>
-              <li class="">
-                <a class="nav-link" href="tglink">
-                  <img src="/images/icons/tg.png" alt="" class="navIcon" />
+                <a
+                  href="tglink"
+                  target="_blank"
+                  style="text-decoration: none"
+                  rel="noopener noreferrer"
+                >
+                  <img src="/images/icons/tt.png" alt="" class="mobTwitter" />
                 </a>
-              </li>
-              <li class="">
-                <a class="nav-link" href="ttlink">
-                  <img src="/images/icons/tt.png" alt="" class="navIcon" />
-                </a>
-              </li>
-              <li class="">
-                <a class="nav-link" href="/">
-                  <img src="/images/icons/burger.png" alt="" class="navIcon" />
-                </a>
-              </li>
-            </ul>
+              </div>
+            </div>
           </div>
         </div>
-      </nav>
+      </header>
+
       <!-- Scrollable Content -->
       <div class="outer-wrapper">
         <div class="wrapper">
@@ -206,75 +255,110 @@
       style="z-index: 1000000; position: relative"
     >
       <canvas id="canvas" style="z-index: -1"></canvas>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <!-- Left Side: Logo and Music Button -->
-          <a class="navbar-brand" href="#">
-            <img src="/images/icons/logo.png" alt="" class="navBtn" />
+      <nav class="navbar">
+        <div class="brand">
+          <a href="#">
+            <img src="/images/icons/logo.png" alt="Logo" />
           </a>
-          <button
-            class=""
-            type="button"
-            style="border: none; outline: none; background: none"
-          >
-            <a class="nav-link" href="tglink">
-              <img src="/images/icons/audio.png" alt="" class="navIcon" />
-            </a>
+          <button class="audioBtn disn">
+            <img src="/images/icons/audio.png" alt="Audio" />
           </button>
+        </div>
+        <div class="nav-links" id="navLinks">
+          <a href="buylink" class="disn">
+            <img
+              src="/images/icons/BUY.png"
+              class="buyBtn"
+              alt="Buy"
+              style="width: 152px"
+            />
+          </a>
+          <a href="tglink" class="disn">
+            <img src="/images/icons/tg.png" alt="Telegram" />
+          </a>
+          <a href="ttlink" class="disn">
+            <img src="/images/icons/tt.png" alt="Twitter" />
+          </a>
+          <button class="disBlock">
+            <img
+              src="/images/icons/audio.png"
+              alt="Audio"
+              style="width: 38px"
+            />
+          </button>
+          <button id="openDropdown2">
+            <img src="/images/icons/burger.png" alt="Burger Menu" />
+          </button>
+        </div>
+      </nav>
+      <!-- Black Overlay -->
+      <div class="overlay" id="overlay2" style="display: none"></div>
+      <!-- Dropdown -->
 
-          <!-- Right Side: Links -->
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div
-            class="collapse navbar-collapse"
-            id="navbarNav"
-            style="
-              display: flex;
-              align-content: center;
-              justify-content: center;
-            "
-          >
-            <ul
-              class="navbar-nav ms-auto"
-              style="
-                display: flex;
-                align-content: center;
-                justify-content: center;
-              "
+      <div class="dropdown" id="dropdown2">
+        <div class="dropdown-content">
+          <div class="dropHeader">
+            <a href="buylink" target="_blank" rel="noopener noreferrer">
+              <img src="/images/BUY.png" alt="" class="mobBuy" />
+            </a>
+            <button
+              style="background: none; border: none; outline: none"
+              id="closeDropdown2"
             >
-              <li class="">
-                <a class="nav-link" href="buylink">
-                  <img src="/images/icons/BUY.png" alt="" class="navBtn" />
-                </a>
+              <img src="/images/icons/close.png" class="closeBtn" alt="" />
+            </button>
+          </div>
+          <img src="/images/icons/logo.png" alt="" class="dropLogo" />
+          <div class="mobile_nav_box">
+            <ul class="dropNav">
+              <li>
+                <a href="/" target="_blank" rel="noopener noreferrer">Home</a>
               </li>
-              <li class="">
-                <a class="nav-link" href="tglink">
-                  <img src="/images/icons/tg.png" alt="" class="navIcon" />
-                </a>
+              <li>
+                <a href="gitbookLink" target="_blank" rel="noopener noreferrer"
+                  >About</a
+                >
               </li>
-              <li class="">
-                <a class="nav-link" href="ttlink">
-                  <img src="/images/icons/tt.png" alt="" class="navIcon" />
-                </a>
-              </li>
-              <li class="">
-                <a class="nav-link" href="/">
-                  <img src="/images/icons/burger.png" alt="" class="navIcon" />
-                </a>
+              <li>
+                <a href="gitbookLink" target="_blank" rel="noopener noreferrer"
+                  >Tokenomics</a
+                >
               </li>
             </ul>
           </div>
+
+          <!-- mobile nav socials -->
+          <div
+            style="
+              padding-right: 14px;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              padding-top: 50px;
+            "
+          >
+            <p style="opacity: 0">kdjdkf</p>
+            <div>
+              <a
+                href="tglink"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="text-decoration: none"
+              >
+                <img src="/images/icons/tg.png" alt="" class="mobTg" />
+              </a>
+              <a
+                href="tglink"
+                target="_blank"
+                style="text-decoration: none"
+                rel="noopener noreferrer"
+              >
+                <img src="/images/icons/tt.png" alt="" class="mobTwitter" />
+              </a>
+            </div>
+          </div>
         </div>
-      </nav>
+      </div>
       <div
         class="popup_cont"
         style="
@@ -425,6 +509,57 @@
 
       loop();
       setInterval(loop, 1000 / 60);
+
+      // second drop down
+      const dropdown = document.getElementById("dropdown");
+      const openDropdown = document.getElementById("openDropdown");
+      const closeDropdown = document.getElementById("closeDropdown");
+      const overlay = document.getElementById("overlay");
+
+      // Open dropdown and overlay
+      openDropdown.addEventListener("click", () => {
+        dropdown.classList.add("active");
+        overlay.style.display = "block"; // Show the overlay
+      });
+
+      // Close dropdown and overlay
+      closeDropdown.addEventListener("click", () => {
+        dropdown.classList.remove("active");
+        overlay.style.display = "none"; // Hide the overlay
+      });
+
+      // Close dropdown and overlay when clicking outside of the dropdown content
+      window.addEventListener("click", (event) => {
+        if (event.target === overlay) {
+          dropdown.classList.remove("active");
+          overlay.style.display = "none"; // Hide the overlay
+        }
+      });
+      // first drop down
+      const dropdown2 = document.getElementById("dropdown2");
+      const openDropdown2 = document.getElementById("openDropdown2");
+      const closeDropdown2 = document.getElementById("closeDropdown2");
+      const overlay2 = document.getElementById("overlay2");
+
+      // Open dropdown and overlay
+      openDropdown2.addEventListener("click", () => {
+        dropdown2.classList.add("active");
+        overlay2.style.display = "block"; // Show the overlay
+      });
+
+      // Close dropdown and overlay
+      closeDropdown2.addEventListener("click", () => {
+        dropdown2.classList.remove("active");
+        overlay2.style.display = "none"; // Hide the overlay
+      });
+
+      // Close dropdown and overlay when clicking outside of the dropdown content
+      window.addEventListener("click", (event) => {
+        if (event.target === overlay) {
+          dropdown2.classList.remove("active");
+          overlay2.style.display = "none"; // Hide the overlay
+        }
+      });
     </script>
   </body>
 </html>
