@@ -2,6 +2,9 @@ body {
   margin: 0;
   padding: 0;
   position: relative;
+  overflow-y: hidden !important;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 /* custom font  */
@@ -146,6 +149,7 @@ canvas {
   background-size: cover;
   background-position: center;
   background-blend-mode: multiply;
+  overflow-y: hidden !important;
 }
 .cta_btn {
   outline: none;
@@ -464,7 +468,7 @@ img.mobTg,
   padding: 0 20px;
   z-index: 10000;
   height: 81px;
-  width: 88%;
+  width: 80%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 25px;
   margin: 0 auto;
@@ -525,15 +529,20 @@ img.mobTg,
 .disBlock {
   display: none;
 }
-
-.mainHeight {
+.popup_cont {
+  height: 100vh;
+  overflow-y: hidden !important;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+/* .mainHeight {
   height: 130vh;
   overflow-x: hidden;
-}
+} */
 @media screen and (max-width: 1500px) {
-  .mainHeight {
+  /* .mainHeight {
     height: 100vh;
-  }
+  } */
 }
 
 /******************responsive code***************/
@@ -635,7 +644,7 @@ img.mobTg,
     top: 88vh;
     cursor: pointer;
   }
-  .mainHeight {
+  /* .mainHeight {
     height: 100vh;
-  }
+  } */
 }
