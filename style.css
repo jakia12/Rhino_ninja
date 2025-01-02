@@ -574,6 +574,25 @@ img.mobTg,
 }
 /******************responsive code***************/
 @media screen and (max-width: 768px) {
+  .section1 {
+    background-image: url(/images/mb1.png);
+    background-size: cover;
+    background-position: 70% 70%;
+  }
+
+  /* section two design */
+  .section2 {
+    background-image: url(/images/mb2.png);
+    background-size: cover;
+    background-position: 100% 70%;
+  }
+
+  /* section three design */
+  .section3 {
+    background-image: url(/images/mb3.png);
+    background-size: cover;
+    background-position: 100% 70%;
+  }
   .homeTxt {
     right: 55%;
     display: none;
@@ -592,11 +611,6 @@ img.mobTg,
     top: 19%;
     z-index: 10000000000;
     width: 408px;
-  }
-  .section1 {
-    background-image: url(/images/bg1.png);
-    background-size: cover;
-    background-position: 70% 70%;
   }
 
   .thirdTxt {
