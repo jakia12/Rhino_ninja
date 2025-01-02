@@ -208,14 +208,18 @@ canvas {
   font-size: 18px;
   border-radius: 8px;
   overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  border-radius: 8px;
   opacity: 1;
-  transition: all 2s linear;
+  transition: all 0.5s ease;
 }
 /* Slide down visible state */
 /* #textBox.active {
-  top: 22%;
-  right: 19%;
-
+  
   opacity: 1;
   transform: translateY(0);
   padding: 20px;
@@ -594,9 +598,34 @@ img.mobTg,
     background-size: cover;
     background-position: 70% 70%;
   }
+
   .thirdTxt {
-    top: 41%;
-    right: 7%;
+    background-color: #ffbf1ed8;
+    border: 2px solid #191919;
+    width: 352px;
+    height: 216px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    border-radius: 8px;
+    position: absolute;
+    top: 19%;
+    right: 19%;
+  }
+  .secondTxt {
+    background-color: #ffbf1ed8;
+    border: 2px solid #191919;
+    width: 385px;
+    height: 204px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    border-radius: 8px;
+    position: absolute;
+    top: 36%;
+    right: 18%;
   }
   .wrapper {
     width: 600vw;
@@ -680,7 +709,4 @@ img.mobTg,
     top: 88vh;
     cursor: pointer;
   }
-  /* .mainHeight {
-    height: 100vh;
-  } */
 }
