@@ -611,20 +611,6 @@ img.mobTg,
     scroll-snap-align: start; /* Snap to start of each section */
   }
 
-  .outer-wrapper {
-    flex-direction: column; /* Stack sections vertically */
-    width: 100%; /* Full width */
-    height: auto; /* Allow scrolling vertically */
-    overflow-x: hidden; /* Disable horizontal scrolling */
-    overflow-y: auto; /* Enable vertical scrolling */
-  }
-
-  .slide {
-    flex: none; /* Reset flex property */
-    width: 100%; /* Full width for mobile */
-    height: auto; /* Adjust height for content */
-    scroll-snap-align: start; /* Snap to start of each section */
-  }
   .homeTxt {
     right: 55%;
     display: none;
