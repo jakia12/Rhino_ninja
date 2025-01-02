@@ -584,10 +584,15 @@ img.mobTg,
   }
   .ninjaAnim {
     position: absolute;
-    left: -1%;
+    left: 4%;
     top: 19%;
     z-index: 10000000000;
     width: 408px;
+  }
+  .section1 {
+    background-image: url(/images/bg1.png);
+    background-size: cover;
+    background-position: 70% 70%;
   }
   .thirdTxt {
     top: 41%;
