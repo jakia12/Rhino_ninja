@@ -2,9 +2,9 @@ body {
   margin: 0;
   padding: 0;
   position: relative;
-  /* overflow-y: hidden !important;
+  overflow-y: hidden !important;
   scrollbar-width: none;
-  -ms-overflow-style: none; */
+  -ms-overflow-style: none;
 }
 
 /* custom font  */
@@ -594,22 +594,6 @@ img.mobTg,
     background-position: 100% 70%;
   }
   /* Default wrapper styles for desktop */
-  .outer-wrapper {
-    display: flex;
-    flex-direction: row;
-    width: 300vw; /* Adjust to fit the total number of sections */
-    height: 100vh;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory; /* Enable snapping */
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling for mobile */
-  }
-
-  .slide {
-    flex: 0 0 100vw; /* Each section takes the full viewport width */
-    height: 100vh;
-    scroll-snap-align: start; /* Snap to start of each section */
-  }
 
   .homeTxt {
     right: 55%;
