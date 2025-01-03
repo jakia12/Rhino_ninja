@@ -278,16 +278,16 @@ canvas {
 .thirdTxt {
   background-color: #ffbf1ed8;
   border: 2px solid #191919;
-  width: 570px;
-  height: 128px;
+  width: 489px;
+  height: 148px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 18px;
   border-radius: 8px;
   position: absolute;
-  top: 17%;
-  right: 0%;
+  top: 23%;
+  right: 5%;
 }
 /* scroll to explore */
 
@@ -574,6 +574,20 @@ img.mobTg,
 }
 /******************responsive code***************/
 @media screen and (max-width: 768px) {
+  canvas {
+    display: none;
+  }
+  .modal {
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.594),
+        rgba(0, 0, 0, 0.616)
+      ),
+      url(/images/mobOver.png);
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    overflow-y: hidden !important;
+  }
   .section1 {
     background-image: url(/images/mb1.png);
     background-size: cover;
