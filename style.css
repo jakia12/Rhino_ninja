@@ -514,8 +514,19 @@ img.mobTg,
 .popup_cont {
   height: 100vh;
   overflow-y: hidden !important;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE */
+
+  /* Hides scrollbar for Firefox */
+  scrollbar-width: none;
+
+  /* Hides scrollbar for Internet Explorer and Edge */
+  -ms-overflow-style: none;
+
+  /* Hides scrollbar for Chrome, Safari, and other WebKit-based browsers */
+  overflow: hidden;
+}
+
+.popup_cont::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and WebKit-based browsers */
 }
 
 /* Ninja Animation */
