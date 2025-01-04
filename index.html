@@ -402,7 +402,157 @@
       integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
       crossorigin="anonymous"
     ></script>
+    <script>
+      window.onload = function () {
+        const modal2 = document.getElementById("myModal");
+        const span = document.getElementById("yes");
+        const landingPage = document.getElementById("main");
+        const music = document.getElementById("music");
+        const stopButton = document.getElementById("audioBtn");
+        const stopButton2 = document.getElementById("audioBtn2");
 
+        // Play music on play button click
+        span.addEventListener("click", () => {
+          music.play();
+        });
+
+        // Stop music on stop button clicks
+        [stopButton, stopButton2].forEach((button) => {
+          button.addEventListener("click", () => {
+            music.pause();
+            music.currentTime = 0; // Reset the audio to the start
+          });
+        });
+
+        // Show modal on page load
+        modal2.style.display = "block";
+
+        // Close modal and show landing page
+        span.onclick = function () {
+          modal2.style.display = "none";
+          landingPage.style.display = "block";
+        };
+      };
+
+      // canvas animation here
+      // Canvas and Firefly Animation
+      const canvas = document.getElementById("canvas");
+      const c = canvas.getContext("2d");
+
+      // Initialize canvas size and scale for high DPI displays
+      function initCanvas() {
+        const dpr = window.devicePixelRatio || 1;
+        canvas.width = window.innerWidth * dpr;
+        canvas.height = window.innerHeight * dpr;
+        canvas.style.width = `${window.innerWidth}px`;
+        canvas.style.height = `${window.innerHeight}px`;
+        c.scale(dpr, dpr); // Scale canvas to account for high DPI
+      }
+
+      class Firefly {
+        constructor() {
+          const dpr = window.devicePixelRatio || 1;
+          this.x = (Math.random() * canvas.width) / dpr;
+          this.y = (Math.random() * canvas.height) / dpr;
+          this.s = Math.random() * 2; // Size of the firefly
+          this.ang = Math.random() * 2 * Math.PI; // Angle of movement
+          this.v = (this.s * this.s) / 4; // Velocity based on size
+        }
+
+        move() {
+          this.x += this.v * Math.cos(this.ang);
+          this.y += this.v * Math.sin(this.ang);
+          this.ang +=
+            (Math.random() * 20 * Math.PI) / 180 - (10 * Math.PI) / 180;
+        }
+
+        show() {
+          c.beginPath();
+          c.arc(this.x, this.y, this.s, 0, 2 * Math.PI);
+          c.fillStyle = "#fddba3";
+          c.fill();
+        }
+      }
+
+      let fireflies = [];
+
+      function draw() {
+        if (fireflies.length < 100) {
+          for (let j = 0; j < 10; j++) {
+            fireflies.push(new Firefly());
+          }
+        }
+
+        for (let i = fireflies.length - 1; i >= 0; i--) {
+          fireflies[i].move();
+          fireflies[i].show();
+
+          // Remove firefly if it goes out of bounds
+          if (
+            fireflies[i].x < 0 ||
+            fireflies[i].x > canvas.width / (window.devicePixelRatio || 1) ||
+            fireflies[i].y < 0 ||
+            fireflies[i].y > canvas.height / (window.devicePixelRatio || 1)
+          ) {
+            fireflies.splice(i, 1);
+          }
+        }
+      }
+
+      function loop() {
+        c.clearRect(0, 0, canvas.width, canvas.height);
+        draw();
+        window.requestAnimationFrame(loop);
+      }
+
+      // Resize handler
+      window.addEventListener("resize", () => {
+        initCanvas();
+      });
+
+      // Initialize and start the animation
+      initCanvas();
+      loop();
+
+      // Dropdown Functionality
+      function setupDropdowns(dropdownId, openId, closeId, overlayId) {
+        const dropdown = document.getElementById(dropdownId);
+        const openDropdown = document.getElementById(openId);
+        const closeDropdown = document.getElementById(closeId);
+        const overlay = document.getElementById(overlayId);
+
+        // Open dropdown and overlay
+        openDropdown.addEventListener("click", () => {
+          dropdown.classList.add("active");
+          overlay.style.display = "block"; // Show overlay
+        });
+
+        // Close dropdown and overlay
+        closeDropdown.addEventListener("click", () => {
+          dropdown.classList.remove("active");
+          overlay.style.display = "none"; // Hide overlay
+        });
+
+        // Close dropdown and overlay when clicking outside of dropdown content
+        window.addEventListener("click", (event) => {
+          if (event.target === overlay) {
+            dropdown.classList.remove("active");
+            overlay.style.display = "none"; // Hide overlay
+          }
+        });
+      }
+
+      // Initialize dropdowns
+      setupDropdowns("dropdown", "openDropdown", "closeDropdown", "overlay");
+      setupDropdowns(
+        "dropdown2",
+        "openDropdown2",
+        "closeDropdown2",
+        "overlay2"
+      );
+
+      //audio play
+    </script>
     <!-- aos js -->
   </body>
 </html>
