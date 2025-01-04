@@ -3,35 +3,32 @@ body {
   padding: 0;
   position: relative;
   overflow-y: hidden !important;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-/* Custom Fonts */
+/* custom font  */
 @font-face {
   font-family: "komikax";
-  src: url("/fonts/KOMIKAX_.ttf") format("truetype"); /* Correct format for broad compatibility */
+  src: url("/fonts/KOMIKAX_.ttf") format("woff2"),
+    url("/fonts/KOMIKAX_.ttf") format("woff");
   font-weight: normal;
   font-style: normal;
-  font-display: swap; /* Ensures better loading behavior */
 }
 @font-face {
   font-family: "mochi";
-  src: url("/fonts/MochiyPopOne-Regular.ttf") format("truetype"); /* Correct format */
+  src: url("/fonts/MochiyPopOne-Regular.ttf") format("woff2"),
+    url("/fonts/MochiyPopOne-Regular.ttf") format("woff");
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
 }
-
-/* Header */
 .header {
   position: relative;
   height: 81px;
   width: 88%;
+
   margin: 0 auto;
 }
-
-/* Typography */
 h2,
 a {
   font-family: "komikax", sans-serif;
@@ -42,24 +39,29 @@ h4 {
   font-family: "mochi", sans-serif;
 }
 
-/* Welcome Page Title */
+/* welcome page design */
 .wlTtl {
-  color: #fff; /* Replace text-fill-color for better compatibility */
+  text-fill-color: #fff;
+  text-stroke: 4px black;
+  -webkit-text-fill-color: #fff;
+  -webkit-text-stroke: 4px black;
+  -moz-text-fill-color: #fff;
   font-size: 80px;
   margin-bottom: 40px;
-  text-shadow: 2px 2px 4px black; /* Replace text-stroke for better browser support */
 }
 
-/* Navbar */
+/* navbar design */
 .navIcon {
   width: 48px;
 }
+
 .navbar a {
   color: white;
   text-decoration: none;
   margin: 0 5px;
   font-size: 1.2rem;
 }
+
 .navbar a:hover {
   text-decoration: underline;
 }
@@ -69,16 +71,15 @@ li {
 }
 .navBtn {
   width: 196px;
+  /* height: 58px; */
+
   margin-right: 14px;
 }
-
-/* Fullscreen Sections */
 .slide {
   width: 100vw;
   height: 100vh;
 }
 
-/* Wrapper and Scrollbar Styling */
 .wrapper {
   width: 300vw;
   display: flex;
@@ -86,6 +87,7 @@ li {
   transform: rotate(90deg) translateY(-100vh);
   transform-origin: top left;
 }
+
 .outer-wrapper {
   width: 100vh;
   height: 100vw;
@@ -95,55 +97,60 @@ li {
   overflow-y: scroll;
   overflow-x: hidden;
   position: absolute;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
-body::-webkit-scrollbar,
+
 ::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
+  display: none;
 }
-/* Section Backgrounds */
+/* section one design */
 .section1 {
   background-image: url(/images/bg1.png);
   background-size: cover;
   background-position: 100% 70%;
 }
 
+/* section two design */
 .section2 {
   background-image: url(/images/bg2.png);
   background-size: cover;
   background-position: 100% 70%;
 }
 
+/* section three design */
 .section3 {
   background-image: url(/images/bg3.png);
   background-size: cover;
   background-position: 100% 70%;
 }
 
-/* Modal Styles */
+/* Modal CSS */
 canvas {
   filter: blur(1px);
   position: absolute;
   top: 0;
   left: 0;
+  right: 0;
   width: 100%;
   height: 100%;
 }
-
 .modal {
-  display: block; /* Initially visible */
-  position: fixed;
-  z-index: 10000000;
+  display: block; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 10000000; /* Sit on top */
   left: 0;
   top: 0;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden; /* Prevent scrolling */
-  background: linear-gradient(rgba(0, 0, 0, 0.594), rgba(0, 0, 0, 0.616)),
-    url(/images/overbg.png) no-repeat center center / cover;
+  width: 100%; /* Full width */
+  height: 100vh; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.594), rgba(0, 0, 0, 0.616)),
+    url(/images/overbg.png);
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply;
+  overflow-y: hidden !important;
 }
-
 .cta_btn {
   outline: none;
   border: none;
@@ -152,25 +159,20 @@ canvas {
   color: #fff;
   font-size: 16px;
   border-radius: 30px;
-  cursor: pointer;
 }
-
 .no_btn {
   background-color: blue;
   margin-left: 10px;
-  cursor: pointer;
 }
-
 .no_btn:hover {
   color: #fff !important;
 }
-
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto;
+  margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Responsive width */
+  width: 80%; /* Could be more or less, depending on screen size */
 }
 
 .close {
@@ -178,25 +180,25 @@ canvas {
   float: right;
   font-size: 28px;
   font-weight: bold;
-  cursor: pointer;
 }
 
 .close:hover,
 .close:focus {
   color: black;
   text-decoration: none;
+  cursor: pointer;
 }
 
 #main {
-  display: none;
+  display: none; /* Hidden by default */
 }
 
-/* Text Box Styling */
+/* home page design */
 .homeTxt {
   position: absolute;
   top: 18%;
   right: 18%;
-  background-color: rgba(255, 191, 30, 0.85);
+  background-color: #ffbf1ed8;
   border: 2px solid #191919;
   width: 276px;
   height: 278px;
@@ -205,39 +207,61 @@ canvas {
   justify-content: center;
   font-size: 18px;
   border-radius: 8px;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  border-radius: 8px;
+  opacity: 1;
   transition: all 0.5s ease;
 }
+/* Slide down visible state */
+/* #textBox.active {
+  
+  opacity: 1;
+  transform: translateY(0);
+  padding: 20px;
+} */
 
 .homeTxt h3,
 .secondTxt h3,
 .thirdTxt h3 {
+  /* text-fill-color: #fff;
+  text-stroke: 0.5px black;
+  -webkit-text-fill-color: #fff;
+  -webkit-text-stroke: 0.5px black;
+  -moz-text-fill-color: #fff; */
   font-size: 15px;
   font-weight: 400;
   text-align: center;
   line-height: 26px;
   color: #fff;
+  /* width: 251px; */
   padding: 0 16px;
 }
 
-/* Section Designs */
 .treePos2 {
   position: absolute;
   left: -67px;
   top: 0;
   width: 500px;
+  left: -1;
   height: 100vh;
 }
-
 .treePos3 {
   position: absolute;
   left: -50px;
   top: 0;
   width: 53px;
+  left: -1;
   height: 100vh;
 }
 
+/* second section design */
 .secondTxt {
-  background-color: rgba(255, 191, 30, 0.85);
+  background-color: #ffbf1ed8;
   border: 2px solid #191919;
   width: 525px;
   height: 155px;
@@ -252,7 +276,7 @@ canvas {
 }
 
 .thirdTxt {
-  background-color: rgba(255, 191, 30, 0.85);
+  background-color: #ffbf1ed8;
   border: 2px solid #191919;
   width: 489px;
   height: 148px;
@@ -265,52 +289,59 @@ canvas {
   top: 23%;
   right: 5%;
 }
+/* scroll to explore */
 
-/* Scroll to Explore */
 .scroll_text {
   position: absolute;
   left: calc(44%);
   top: 88vh;
   cursor: pointer;
 }
-
 .scroll-btn {
   position: absolute;
   left: calc(50% - 16px);
   top: 76vh;
   cursor: pointer;
   animation: scroll-btn 1s ease-in-out alternate infinite;
+
+  svg {
+    fill: #000;
+    height: 50px;
+    width: 32px;
+    margin-bottom: 10px;
+    .animated {
+      animation: scroll-down 2s infinite linear;
+    }
+    .ball {
+      animation: ball-move 1s infinite ease-in-out alternate;
+    }
+  }
 }
 
-.scroll-btn svg {
-  fill: #000;
-  height: 50px;
-  width: 32px;
-  margin-bottom: 10px;
-}
-
-.scroll-btn .animated {
-  animation: scroll-down 2s infinite linear;
-}
-
-.scroll-btn .ball {
-  animation: ball-move 1s infinite ease-in-out alternate;
-}
-
-/* Keyframe Animations */
 @keyframes scroll-down {
   0% {
     stroke-dasharray: 0, 180px;
     opacity: 1;
   }
   50% {
+    opacity: 1;
+  }
+  50% {
     opacity: 0.5;
   }
   60% {
-    stroke-dasharray: 215.7737px, 363.607px;
     opacity: 0.8;
+    stroke-dasharray: 215.7737px, 363.607px;
   }
-  70%,
+  70% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0;
+  }
   100% {
     opacity: 0;
   }
@@ -320,43 +351,50 @@ canvas {
   0% {
     opacity: 0;
   }
+
   50% {
     opacity: 0.8;
   }
+
   100% {
     transform: translateY(16px);
     opacity: 0;
   }
 }
-/* Dropdown Styles */
+
+/* drop down styles */
+
+/* Dropdown styles */
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
-  backdrop-filter: blur(5px); /* Adds a blur effect */
-  z-index: 999; /* Ensures it appears above other elements */
-  display: none; /* Initially hidden */
+  background-color: rgba(0, 0, 0, 0.7); /* Black with opacity */
+  backdrop-filter: blur(5px); /* Blurry effect */
+  z-index: 999; /* Ensure it's above everything else */
+  display: none; /* Hidden by default */
 }
-
 .dropdown {
   position: absolute;
   top: 37px;
   right: -65%;
   width: 320px;
   height: 450px;
-  background: url(/images/drop.png) no-repeat center center / cover;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  background-image: url(/images/drop.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+
   z-index: 1000;
   border-radius: 8px;
   border: 2px solid #191919;
   padding: 14px;
-  display: none; /* Hidden by default */
+  display: none;
 }
-
 .dropdown.active {
-  display: flex; /* Shows dropdown when active */
+  display: flex;
 }
 
 .dropdown-content {
@@ -372,7 +410,7 @@ canvas {
 }
 
 .dropdown-content button {
-  background-color: #007bff; /* Blue color */
+  background-color: #007bff;
   color: white;
   border: none;
   padding: 8px 15px;
@@ -381,14 +419,12 @@ canvas {
 }
 
 .dropdown-content button:hover {
-  background-color: #0056b3; /* Darker blue for hover effect */
+  background-color: #0056b3;
 }
-
 img.mobBuy {
   width: 148px;
   height: 45px;
 }
-
 .dropHeader {
   display: flex;
   align-items: center;
@@ -396,17 +432,14 @@ img.mobBuy {
   gap: 39px;
   padding: 0 10px;
 }
-
 img.closeBtn {
   width: 100%;
 }
-
 img.dropLogo {
   text-align: left;
   width: 197px;
   margin-top: 1px;
 }
-
 ul.dropNav {
   padding: 0;
   margin: 0;
@@ -416,30 +449,36 @@ ul.dropNav {
 
 .dropNav li a,
 .para {
-  color: #000000; /* Use color instead of text-fill-color for compatibility */
-  text-shadow: 1px 1px 2px #facb28; /* Replacement for text-stroke */
+  text-fill-color: #000000;
+  text-stroke: 4px #facb28;
+  -webkit-text-fill-color: #000000;
+  -webkit-text-stroke: 1px #facb28;
+  -moz-text-fill-color: #000;
   font-size: 21px;
   display: block;
   margin-top: 17px;
   text-decoration: none;
   padding-left: 17px;
 }
-
+img.dropLogo {
+  text-align: left;
+  width: 197px;
+  margin-top: 1px;
+  margin-left: 10px;
+}
 img.mobTg {
   width: 52px;
   margin-right: 5px;
 }
-
 img.mobTg,
 .mobTwitter {
   width: 52px;
 }
-
-/* Navbar Styles */
+/* new custom navbar */
 .navbar {
   position: fixed;
   top: 11px;
-  background: url(/images/NAV.png) no-repeat center center / cover;
+  background-image: url(/images/NAV.png);
   color: white;
   display: flex;
   align-items: center;
@@ -452,8 +491,9 @@ img.mobTg,
   border-radius: 25px;
   margin: 0 auto;
   border: 2px solid #000;
+  box-shadow: 0 6px 1px #000;
+  padding: 0 40px !important;
 }
-
 .navbar .brand {
   display: flex;
   align-items: center;
@@ -463,7 +503,6 @@ img.mobTg,
   width: 182px;
   height: auto;
 }
-
 .navbar .audioBtn {
   background: none;
   border: none;
@@ -475,7 +514,6 @@ img.mobTg,
   width: 43px;
   height: auto;
 }
-
 .navbar .nav-links {
   display: flex;
   gap: 15px;
@@ -496,7 +534,7 @@ img.mobTg,
 }
 
 .navbar .burger-btn {
-  display: none; /* Initially hidden */
+  display: none;
   background: none;
   border: none;
   cursor: pointer;
@@ -506,30 +544,27 @@ img.mobTg,
   width: 25px;
   height: auto;
 }
-
 .disBlock {
   display: none;
 }
-
 .popup_cont {
   height: 100vh;
   overflow-y: hidden !important;
-
-  /* Hides scrollbar for Firefox */
   scrollbar-width: none;
-
-  /* Hides scrollbar for Internet Explorer and Edge */
   -ms-overflow-style: none;
-
-  /* Hides scrollbar for Chrome, Safari, and other WebKit-based browsers */
-  overflow: hidden;
+}
+/* .mainHeight {
+  height: 130vh;
+  overflow-x: hidden;
+} */
+@media screen and (max-width: 1500px) {
+  /* .mainHeight {
+    height: 100vh;
+  } */
 }
 
-.popup_cont::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, and WebKit-based browsers */
-}
+/* ninja animation */
 
-/* Ninja Animation */
 .ninjaAnim {
   position: absolute;
   left: 31%;
@@ -538,20 +573,13 @@ img.mobTg,
   width: 408px;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 1500px) {
-  .navbar {
-    width: 90%; /* Adjusted for smaller screens */
-  }
-}
 .scroll {
   display: block;
 }
 .swipe {
   display: none;
 }
-/****************** Responsive Code ***************/
-
+/******************responsive code***************/
 @media screen and (max-width: 768px) {
   .scroll {
     display: none;
@@ -560,41 +588,49 @@ img.mobTg,
     display: block;
   }
   .modal {
-    background: linear-gradient(rgba(0, 0, 0, 0.594), rgba(0, 0, 0, 0.616)),
-      url(/images/mobOver.png) no-repeat center center / cover;
-    overflow-y: hidden !important; /* Prevent vertical scrolling */
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.594),
+        rgba(0, 0, 0, 0.616)
+      ),
+      url(/images/mobOver.png);
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    overflow-y: hidden !important;
   }
-
   .section1 {
-    background: url(/images/mb1.png) no-repeat center center / cover;
+    background-image: url(/images/mb1.png);
+    background-size: cover;
+    background-position: 70% 70%;
   }
 
-  /* Section Two Design */
+  /* section two design */
   .section2 {
-    background: url(/images/mb2.png) no-repeat center center / cover;
+    background-image: url(/images/mb2.png);
+    background-size: cover;
+    background-position: 100% 70%;
   }
 
-  /* Section Three Design */
+  /* section three design */
   .section3 {
-    background: url(/images/mb3.png) no-repeat center center / cover;
+    background-image: url(/images/mb3.png);
+    background-size: cover;
+    background-position: 100% 70%;
   }
+  /* Default wrapper styles for desktop */
 
-  /* Default Wrapper Styles */
   .homeTxt {
     right: 55%;
     display: none;
   }
-
   .secondTxt {
     top: 30%;
     right: 18%;
   }
-
   .slide {
     width: 200vw;
     height: 100vh;
   }
-
   .ninjaAnim {
     position: absolute;
     left: 4%;
@@ -604,7 +640,7 @@ img.mobTg,
   }
 
   .thirdTxt {
-    background-color: rgba(255, 191, 30, 0.85); /* Semi-transparent */
+    background-color: #ffbf1ed8;
     border: 2px solid #191919;
     width: 352px;
     height: 216px;
@@ -617,9 +653,8 @@ img.mobTg,
     top: 19%;
     right: 19%;
   }
-
   .secondTxt {
-    background-color: rgba(255, 191, 30, 0.85);
+    background-color: #ffbf1ed8;
     border: 2px solid #191919;
     width: 385px;
     height: 204px;
@@ -632,7 +667,6 @@ img.mobTg,
     top: 36%;
     right: 18%;
   }
-
   .wrapper {
     width: 600vw;
     display: flex;
@@ -640,18 +674,16 @@ img.mobTg,
     transform: rotate(90deg) translateY(-100vh);
     transform-origin: top left;
   }
-
   .header {
     position: relative;
     height: 81px;
     width: 98%;
+
     margin: 0 auto;
   }
-
   .disn {
     display: none;
   }
-
   .disBlock {
     display: block;
   }
@@ -659,7 +691,7 @@ img.mobTg,
   .navbar {
     position: fixed;
     top: 24px;
-    background: url(/images/NAV.png) no-repeat center center / cover;
+    background-image: url(/images/NAV.png);
     color: white;
     display: flex;
     align-items: center;
@@ -673,25 +705,27 @@ img.mobTg,
     border-radius: 25px;
     margin: 0 auto;
     border: 2px solid #000;
+    box-shadow: 0 6px 1px #000;
+    padding: 0 19px !important;
   }
-
   .navbar .nav-links img {
     width: 38px;
     height: auto;
   }
-
   .navbar .brand img {
     width: 171px;
     height: auto;
   }
-
   .dropdown {
     position: static;
     top: 37px;
     right: -6px;
     width: 320px;
     height: 450px;
-    background: url(/images/drop.png) no-repeat center center / cover;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    background-image: url(/images/drop.png);
+    background-repeat: no-repeat;
+    background-size: cover;
     z-index: 1000;
     border-radius: 8px;
     border: 2px solid #191919;
@@ -699,7 +733,6 @@ img.mobTg,
     display: none;
     left: 8%;
   }
-
   .scroll-btn {
     position: absolute;
     left: calc(25%);
@@ -710,7 +743,6 @@ img.mobTg,
     align-items: center;
     justify-content: center;
   }
-
   .scroll_text {
     position: absolute;
     left: calc(17%);
