@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap');
+
 body {
   margin: 0;
   padding: 0;
@@ -8,6 +10,7 @@ body {
 }
 
 /* custom font  */
+
 @font-face {
   font-family: "komikax";
   src: url("/fonts/KOMIKAX_.ttf") format("woff2"),
@@ -31,10 +34,13 @@ body {
 }
 h2,
 a {
-  font-family: "komikax", sans-serif;
+  font-family: "komikax", serif;
+}
+
+h3 {
+  font-family: "Mochiy Pop One", serif;
 }
 p,
-h3,
 h4 {
   font-family: "mochi", sans-serif;
 }
@@ -198,7 +204,7 @@ canvas {
   position: absolute;
   top: 18%;
   right: 18%;
-  background-color: #ffbf1ed8;
+  background-color: #ffd9726e;
   border: 2px solid #191919;
   width: 276px;
   height: 278px;
@@ -217,6 +223,11 @@ canvas {
   opacity: 1;
   transition: all 0.5s ease;
 }
+/* 
+.homeTxt h3{
+  -webkit-text-stroke: 0.7px #000000;
+} */
+
 /* Slide down visible state */
 /* #textBox.active {
   
@@ -261,7 +272,7 @@ canvas {
 
 /* second section design */
 .secondTxt {
-  background-color: #ffbf1ed8;
+  background-color: #ffc31fa4;
   border: 2px solid #191919;
   width: 525px;
   height: 155px;
@@ -276,7 +287,7 @@ canvas {
 }
 
 .thirdTxt {
-  background-color: #ffbf1ed8;
+  background-color: #fdc93ca8;
   border: 2px solid #191919;
   width: 489px;
   height: 148px;
