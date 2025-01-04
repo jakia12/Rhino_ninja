@@ -380,7 +380,13 @@
     <!-- modal section finish-->
 
     <!-- audion play -->
-    <audio id="music" style="opacity: 0; visibility: hidden" loop>
+    <audio
+      id="music"
+      style="opacity: 0; visibility: hidden"
+      loop
+      muted
+      autoplay
+    >
       <source src="/audio/rhino.mp3" type="audio/mpeg" />
       <source src="/audio/rhino.mp3" type="audio/ogg" />
       Your browser does not support the audio element.
@@ -398,69 +404,67 @@
     ></script>
     <script>
       window.onload = function () {
-        var modal2 = document.getElementById("myModal");
-        var span = document.getElementById("yes");
-        var spanNo = document.getElementById("no");
-        var landingPage = document.getElementById("main");
+        const modal2 = document.getElementById("myModal");
+        const span = document.getElementById("yes");
+        const landingPage = document.getElementById("main");
         const music = document.getElementById("music");
         const stopButton = document.getElementById("audioBtn");
         const stopButton2 = document.getElementById("audioBtn2");
-        const textBox = document.getElementById("textBox");
 
         // Play music on play button click
         span.addEventListener("click", () => {
           music.play();
-          // textBox.classList.toggle("active");
         });
 
-        // Toggle the 'active' class on the text box when the button is clicked
-
-        // Stop music on stop button click
-        stopButton.addEventListener("click", () => {
-          music.pause(); // Pause the audio
-          music.currentTime = 0; // Reset the audio to the start
+        // Stop music on stop button clicks
+        [stopButton, stopButton2].forEach((button) => {
+          button.addEventListener("click", () => {
+            music.pause();
+            music.currentTime = 0; // Reset the audio to the start
+          });
         });
 
-        stopButton2.addEventListener("click", () => {
-          music.pause(); // Pause the audio
-          music.currentTime = 0; // Reset the audio to the start
-        });
-
-        // When the page loads, open the modal
+        // Show modal on page load
         modal2.style.display = "block";
 
-        // When the user clicks on <span> (x), close the modal
+        // Close modal and show landing page
         span.onclick = function () {
           modal2.style.display = "none";
           landingPage.style.display = "block";
         };
-        // span.onclick = function () {
-        //   modal2.style.display = "none";
-        //   landingPage.style.display = "block";
-        // };
       };
-      // text box animation
 
-      // canvas animation firefly
-      let c = init("canvas"),
-        w = (canvas.width = window.innerWidth),
-        h = (canvas.height = window.innerHeight);
-      //initiation
+      // Canvas and Firefly Animation
+      const canvas = document.getElementById("canvas");
+      const c = canvas.getContext("2d");
 
-      class firefly {
+      // Initialize canvas size and scale for high DPI displays
+      function initCanvas() {
+        const dpr = window.devicePixelRatio || 1;
+        canvas.width = window.innerWidth * dpr;
+        canvas.height = window.innerHeight * dpr;
+        canvas.style.width = `${window.innerWidth}px`;
+        canvas.style.height = `${window.innerHeight}px`;
+        c.scale(dpr, dpr); // Scale canvas to account for high DPI
+      }
+
+      class Firefly {
         constructor() {
-          this.x = Math.random() * w;
-          this.y = Math.random() * h;
-          this.s = Math.random() * 2;
-          this.ang = Math.random() * 2 * Math.PI;
-          this.v = (this.s * this.s) / 4;
+          const dpr = window.devicePixelRatio || 1;
+          this.x = (Math.random() * canvas.width) / dpr;
+          this.y = (Math.random() * canvas.height) / dpr;
+          this.s = Math.random() * 2; // Size of the firefly
+          this.ang = Math.random() * 2 * Math.PI; // Angle of movement
+          this.v = (this.s * this.s) / 4; // Velocity based on size
         }
+
         move() {
           this.x += this.v * Math.cos(this.ang);
           this.y += this.v * Math.sin(this.ang);
           this.ang +=
             (Math.random() * 20 * Math.PI) / 180 - (10 * Math.PI) / 180;
         }
+
         show() {
           c.beginPath();
           c.arc(this.x, this.y, this.s, 0, 2 * Math.PI);
@@ -469,126 +473,82 @@
         }
       }
 
-      let f = [];
+      let fireflies = [];
 
       function draw() {
-        if (f.length < 100) {
+        if (fireflies.length < 100) {
           for (let j = 0; j < 10; j++) {
-            f.push(new firefly());
+            fireflies.push(new Firefly());
           }
         }
-        //animation
-        for (let i = 0; i < f.length; i++) {
-          f[i].move();
-          f[i].show();
-          if (f[i].x < 0 || f[i].x > w || f[i].y < 0 || f[i].y > h) {
-            f.splice(i, 1);
+
+        for (let i = fireflies.length - 1; i >= 0; i--) {
+          fireflies[i].move();
+          fireflies[i].show();
+
+          // Remove firefly if it goes out of bounds
+          if (
+            fireflies[i].x < 0 ||
+            fireflies[i].x > canvas.width / (window.devicePixelRatio || 1) ||
+            fireflies[i].y < 0 ||
+            fireflies[i].y > canvas.height / (window.devicePixelRatio || 1)
+          ) {
+            fireflies.splice(i, 1);
           }
         }
       }
-
-      let mouse = {};
-      let last_mouse = {};
-
-      canvas.addEventListener(
-        "mousemove",
-        function (e) {
-          last_mouse.x = mouse.x;
-          last_mouse.y = mouse.y;
-
-          mouse.x = e.pageX - this.offsetLeft;
-          mouse.y = e.pageY - this.offsetTop;
-        },
-        false
-      );
-      function init(elemid) {
-        let canvas = document.getElementById(elemid),
-          c = canvas.getContext("2d"),
-          w = (canvas.width = window.innerWidth),
-          h = (canvas.height = window.innerHeight);
-        c.fillStyle = "rgba(30,30,30,1)";
-        c.fillRect(0, 0, w, h);
-        return c;
-      }
-
-      window.requestAnimFrame = function () {
-        return (
-          window.requestAnimationFrame ||
-          window.webkitRequestAnimationFrame ||
-          window.mozRequestAnimationFrame ||
-          window.oRequestAnimationFrame ||
-          window.msRequestAnimationFrame ||
-          function (callback) {
-            window.setTimeout(callback);
-          }
-        );
-      };
 
       function loop() {
-        window.requestAnimFrame(loop);
-        c.clearRect(0, 0, w, h);
+        c.clearRect(0, 0, canvas.width, canvas.height);
         draw();
+        window.requestAnimationFrame(loop);
       }
 
-      window.addEventListener("resize", function () {
-        (w = canvas.width = window.innerWidth),
-          (h = canvas.height = window.innerHeight);
-        loop();
+      // Resize handler
+      window.addEventListener("resize", () => {
+        initCanvas();
       });
 
+      // Initialize and start the animation
+      initCanvas();
       loop();
-      setInterval(loop, 1000 / 60);
 
-      // second drop down
-      const dropdown = document.getElementById("dropdown");
-      const openDropdown = document.getElementById("openDropdown");
-      const closeDropdown = document.getElementById("closeDropdown");
-      const overlay = document.getElementById("overlay");
+      // Dropdown Functionality
+      function setupDropdowns(dropdownId, openId, closeId, overlayId) {
+        const dropdown = document.getElementById(dropdownId);
+        const openDropdown = document.getElementById(openId);
+        const closeDropdown = document.getElementById(closeId);
+        const overlay = document.getElementById(overlayId);
 
-      // Open dropdown and overlay
-      openDropdown.addEventListener("click", () => {
-        dropdown.classList.add("active");
-        overlay.style.display = "block"; // Show the overlay
-      });
+        // Open dropdown and overlay
+        openDropdown.addEventListener("click", () => {
+          dropdown.classList.add("active");
+          overlay.style.display = "block"; // Show overlay
+        });
 
-      // Close dropdown and overlay
-      closeDropdown.addEventListener("click", () => {
-        dropdown.classList.remove("active");
-        overlay.style.display = "none"; // Hide the overlay
-      });
-
-      // Close dropdown and overlay when clicking outside of the dropdown content
-      window.addEventListener("click", (event) => {
-        if (event.target === overlay) {
+        // Close dropdown and overlay
+        closeDropdown.addEventListener("click", () => {
           dropdown.classList.remove("active");
-          overlay.style.display = "none"; // Hide the overlay
-        }
-      });
-      // first drop down
-      const dropdown2 = document.getElementById("dropdown2");
-      const openDropdown2 = document.getElementById("openDropdown2");
-      const closeDropdown2 = document.getElementById("closeDropdown2");
-      const overlay2 = document.getElementById("overlay2");
+          overlay.style.display = "none"; // Hide overlay
+        });
 
-      // Open dropdown and overlay
-      openDropdown2.addEventListener("click", () => {
-        dropdown2.classList.add("active");
-        overlay2.style.display = "block"; // Show the overlay
-      });
+        // Close dropdown and overlay when clicking outside of dropdown content
+        window.addEventListener("click", (event) => {
+          if (event.target === overlay) {
+            dropdown.classList.remove("active");
+            overlay.style.display = "none"; // Hide overlay
+          }
+        });
+      }
 
-      // Close dropdown and overlay
-      closeDropdown2.addEventListener("click", () => {
-        dropdown2.classList.remove("active");
-        overlay2.style.display = "none"; // Hide the overlay
-      });
-
-      // Close dropdown and overlay when clicking outside of the dropdown content
-      window.addEventListener("click", (event) => {
-        if (event.target === overlay) {
-          dropdown2.classList.remove("active");
-          overlay2.style.display = "none"; // Hide the overlay
-        }
-      });
+      // Initialize dropdowns
+      setupDropdowns("dropdown", "openDropdown", "closeDropdown", "overlay");
+      setupDropdowns(
+        "dropdown2",
+        "openDropdown2",
+        "closeDropdown2",
+        "overlay2"
+      );
 
       //audio play
     </script>
