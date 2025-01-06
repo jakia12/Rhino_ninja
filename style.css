@@ -635,8 +635,8 @@ img.mobTg,
   /* Default wrapper styles for desktop */
 
   .homeTxt {
-    right: 55%;
-    display: none;
+    right: 11%;
+    z-index: 99999;
   }
   .secondTxt {
     top: 30%;
