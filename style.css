@@ -254,6 +254,7 @@ canvas {
   /* width: 251px; */
   padding: 0 16px;
   font-weight: 500;
+
   font-family: "Poppins", serif;
 }
 
@@ -655,7 +656,7 @@ img.mobTg,
   }
 
   .thirdTxt {
-    background-color: #ffbf1ed8;
+    background-color: #ffbf1ef0;
     border: 2px solid #191919;
     width: 352px;
     height: 216px;
@@ -669,7 +670,7 @@ img.mobTg,
     right: 19%;
   }
   .secondTxt {
-    background-color: #ffbf1ed8;
+    background-color: #ffbf1ef4;
     border: 2px solid #191919;
     width: 385px;
     height: 204px;
@@ -760,7 +761,7 @@ img.mobTg,
   }
   .scroll_text {
     position: absolute;
-    left: calc(17%);
+    left: calc(14%);
     top: 88vh;
     cursor: pointer;
   }
