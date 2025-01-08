@@ -596,6 +596,191 @@ img.mobTg,
   display: none;
 }
 /******************responsive code***************/
+@media screen and (max-width: 1000px) {
+  .scroll {
+    display: none;
+  }
+  .swipe {
+    display: block;
+  }
+  .modal {
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.594),
+        rgba(0, 0, 0, 0.616)
+      ),
+      url(/images/mobOver.png);
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    overflow-y: hidden !important;
+  }
+  .section1 {
+    background-image: url(/images/mb1.png);
+    background-size: cover;
+    background-position: 70% 70%;
+  }
+
+  /* section two design */
+  .section2 {
+    background-image: url(/images/mb2.png);
+    background-size: cover;
+    background-position: 100% 70%;
+  }
+
+  /* section three design */
+  .section3 {
+    background-image: url(/images/mb3.png);
+    background-size: cover;
+    background-position: 100% 70%;
+  }
+  /* Default wrapper styles for desktop */
+
+  .homeTxt {
+    position: absolute;
+    top: 18%;
+    right: 18%;
+    background-color: #ffd972;
+    border: 2px solid #191919;
+    width: 303px;
+    height: 278px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    border-radius: 8px;
+    opacity: 1;
+    transition: all 0.5s ease;
+  }
+  .secondTxt {
+    background-color: #ffbf1ef4;
+    border: 2px solid #191919;
+    width: 450px;
+    height: 204px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    border-radius: 8px;
+    position: absolute;
+    top: 36%;
+    right: 18%;
+  }
+  .slide {
+    width: 200vw;
+    height: 100vh;
+  }
+
+  .ninjaAnim {
+    position: absolute;
+    left: 17%;
+    top: 25%;
+    z-index: 10000000000;
+    width: 674px;
+  }
+  .thirdTxt {
+    background-color: #ffbf1ef0;
+    border: 2px solid #191919;
+    width: 418px;
+    height: 197px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    border-radius: 8px;
+    position: absolute;
+    top: 31%;
+    right: 26%;
+  }
+
+  .wrapper {
+    width: 600vw;
+    display: flex;
+    flex-direction: row;
+    transform: rotate(90deg) translateY(-100vh);
+    transform-origin: top left;
+  }
+  .header {
+    position: relative;
+    height: 81px;
+    width: 98%;
+
+    margin: 0 auto;
+  }
+  .disn {
+    display: none;
+  }
+  .disBlock {
+    display: block;
+  }
+
+  .navbar {
+    position: fixed;
+    top: 24px;
+    background-image: url(/images/NAV.png);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 99999;
+    height: 81px;
+    flex-wrap: nowrap !important;
+    width: 97%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
+    margin: 0 auto;
+    border: 2px solid #000;
+    box-shadow: 0 6px 1px #000;
+    padding: 0 19px !important;
+  }
+  .navbar .nav-links img {
+    width: 38px;
+    height: auto;
+  }
+  .navbar .brand img {
+    width: 171px;
+    height: auto;
+  }
+  .dropdown {
+    position: static;
+    top: 37px;
+    right: -6px;
+    width: 320px;
+    height: 450px;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    background-image: url(/images/drop.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1000;
+    border-radius: 8px;
+    border: 2px solid #191919;
+    padding: 14px;
+    display: none;
+    left: 8%;
+  }
+  .scroll-btn {
+    position: absolute;
+    left: calc(25%);
+    top: 76vh;
+    cursor: pointer;
+    animation: scroll-btn 1s ease-in-out alternate infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .scroll_text {
+    position: absolute;
+    left: calc(19%);
+    top: 88vh;
+    cursor: pointer;
+  }
+}
 @media screen and (max-width: 768px) {
   .scroll {
     display: none;
